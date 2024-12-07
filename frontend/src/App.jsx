@@ -1,7 +1,11 @@
+import LoginPage from "./pages/LoginPage";
+import SignUpPage from "./pages/SignUpPage";
+
 function App() {
   return (
-    <div className="text-3xl font-bold underline">
-      Hello World...!!! <button className="btn">Button</button>
+    <div className="min-h-screen">
+      {/* <LoginPage /> */}
+      <SignUpPage />
     </div>
   );
 }
