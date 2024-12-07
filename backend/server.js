@@ -5,6 +5,7 @@ import connectToMongoDB from "./db/connectToMongoDb.js";
 import cookieParser from "cookie-parser";
 import messageRouter from "./routes/message.route.js";
 import authMiddleware from "./middleware/auth.middleware.js";
+import userRouter from "./routes/user.route.js";
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.use(authMiddleware);
 
 app.use("/api/auth", authRouter);
 app.use("/api/message", messageRouter);
+app.use("/api/user", userRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
