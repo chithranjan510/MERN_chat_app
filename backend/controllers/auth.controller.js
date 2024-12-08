@@ -43,9 +43,9 @@ export const signup = async (req, res) => {
   } catch (error) {
     console.log("Signup error: ", error);
     if (error.name === "ValidationError") {
-      return res.status(500).json({ message: error.message });
+      return res.status(500).json({ error: error.message });
     }
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ error: "Internal server error" });
   }
 };
 
@@ -74,7 +74,7 @@ export const login = async (req, res) => {
     });
   } catch (error) {
     console.log("Login error: ", error);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ error: "Internal server error" });
   }
 };
 

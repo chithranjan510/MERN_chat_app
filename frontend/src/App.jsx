@@ -1,14 +1,26 @@
-// import LoginPage from "./pages/LoginPage";
+import { Navigate, Route, Routes } from "react-router-dom";
+import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
-// import SignUpPage from "./pages/SignUpPage";
+import SignUpPage from "./pages/SignUpPage";
+import { useAuthContext } from "./context/AuthContext";
 
 function App() {
+  const { userAuthData } = useAuthContext();
   return (
-    <div className="min-h-screen">
-      {/* <LoginPage /> */}
-      {/* <SignUpPage /> */}
-      <HomePage />
-    </div>
+    <Routes>
+      <Route
+        path="/"
+        element={userAuthData ? <HomePage /> : <Navigate to="/login" replace />}
+      />
+      <Route
+        path="/login"
+        element={userAuthData ? <Navigate to="/" replace /> : <LoginPage />}
+      />
+      <Route
+        path="/signup"
+        element={userAuthData ? <Navigate to="/" replace /> : <SignUpPage />}
+      />
+    </Routes>
   );
 }
 

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import ProfileSection from "./ProfileSection";
 import SearchUser from "./SearchUser";
 import UsersContainer from "./UsersContainer";

@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 import MessageBox from "./MessageBox";
 import NoChatSelected from "./NoChatSelected";
 import SendMessage from "./SendMessage";

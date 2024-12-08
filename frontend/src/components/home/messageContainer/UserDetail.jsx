@@ -1,5 +1,7 @@
-/* eslint-disable react/prop-types */
+import { useAuthContext } from "../../../context/AuthContext";
+
 const UserDetail = ({ setSelectedUser }) => {
+  const { userAuthData } = useAuthContext();
   return (
     <div className="flex items-center sm:justify-between md:justify-center pt-4 pb-8">
       <div
@@ -9,8 +11,10 @@ const UserDetail = ({ setSelectedUser }) => {
         <i className="fa-solid fa-arrow-left" />
       </div>
       <div className="flex items-center gap-3">
-        <i className="fa-solid fa-house"></i>
-        <p>Username</p>
+        <div className="w-10 rounded-full">
+          <img src={userAuthData.profilePic} alt="profile pic" />
+        </div>
+        <p className="font-bold capitalize text-lg">{userAuthData.fullName}</p>
       </div>
     </div>
   );

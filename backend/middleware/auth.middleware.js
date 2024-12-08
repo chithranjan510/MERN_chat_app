@@ -10,14 +10,14 @@ const authMiddleware = async (req, res, next) => {
       if (!token) {
         return res
           .status(401)
-          .json({ Error: "Unauthorized - jwt token required" });
+          .json({ error: "Unauthorized - jwt token required" });
       }
       const { userId } = jwt.verify(token, process.env.JWT_SECRET_KEY);
 
       const userData = await UserModel.findById(userId).select("-password");
 
       if (!userData) {
-        return res.status(404).json({ Error: "User not found" });
+        return res.status(404).json({ error: "User not found" });
       }
 
       req.user = userData;
@@ -29,14 +29,14 @@ const authMiddleware = async (req, res, next) => {
     if (error.name === "JsonWebTokenError") {
       return res
         .status(403)
-        .json({ Error: "Unauthorized - Invalid JWT token" });
+        .json({ error: "Unauthorized - Invalid JWT token" });
     }
     if (error.name === "TokenExpiredError") {
       return res
         .status(403)
-        .json({ Error: "Unauthorized - JWT token has expired" });
+        .json({ error: "Unauthorized - JWT token has expired" });
     }
-    res.status(500).json({ Error: "Internal server error" });
+    res.status(500).json({ error: "Internal server error" });
   }
 };
 
