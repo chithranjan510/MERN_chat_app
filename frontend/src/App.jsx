@@ -1,11 +1,13 @@
-import LoginPage from "./pages/LoginPage";
-import SignUpPage from "./pages/SignUpPage";
+// import LoginPage from "./pages/LoginPage";
+import HomePage from "./pages/HomePage";
+// import SignUpPage from "./pages/SignUpPage";
 
 function App() {
   return (
     <div className="min-h-screen">
       {/* <LoginPage /> */}
-      <SignUpPage />
+      {/* <SignUpPage /> */}
+      <HomePage />
     </div>
   );
 }

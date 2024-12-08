@@ -4,7 +4,7 @@ const SignUpPage = () => {
       <h1 className="text-gray-300 text-3xl font-semibold">
         Sign Up <span className="text-orange-500">DoConnect</span>
       </h1>
-      <div className="p-5 bg-gray-900 backdrop-filter backdrop-blur-lg bg-opacity-0 rounded-md w-[90%] sm:w-[70%] md:w-[50%] lg:w-[35%] bg-cli">
+      <div className="p-5 bg-gray-900 backdrop-filter backdrop-blur-lg bg-opacity-0 rounded-md w-[90%] sm:w-[70%] md:w-[50%] lg:w-[35%]">
         <form className="w-full">
           <label
             htmlFor="registerFullname"
