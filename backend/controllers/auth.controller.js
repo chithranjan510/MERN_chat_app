@@ -35,7 +35,7 @@ export const signup = async (req, res) => {
     generateTokenAndSetCookie(newUser._id, res);
 
     res.status(201).json({
-      id: newUser._id,
+      _id: newUser._id,
       fullName: newUser.fullName,
       username: newUser.username,
       profilePic: newUser.profilePic,
@@ -67,7 +67,7 @@ export const login = async (req, res) => {
     generateTokenAndSetCookie(user._id, res);
 
     res.status(200).json({
-      id: user._id,
+      _id: user._id,
       fullName: user.fullName,
       username: user.username,
       profilePic: user.profilePic,

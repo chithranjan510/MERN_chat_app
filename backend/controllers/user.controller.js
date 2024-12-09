@@ -17,5 +17,5 @@ export const getUsersForSidebar = async (req, res) => {
 
 export const getUserData = (req, res) => {
   const { fullName, username, profilePic, gender, _id } = req.user;
-  res.status(200).json({ fullName, username, profilePic, id: _id, gender });
+  res.status(200).json({ fullName, username, profilePic, _id, gender });
 };

@@ -1,12 +1,15 @@
+import useConversation from "../../../zustandStore/useConversation";
 import ProfileSection from "./ProfileSection";
 import SearchUser from "./SearchUser";
 import UsersContainer from "./UsersContainer";
 
-const Sidebar = ({ selectedUser, setSelectedUser }) => {
+const Sidebar = () => {
+  const { selectedConversation } = useConversation();
+
   return (
     <div
-      className={`p-4 max-h-screen overflow-y-hidden flex flex-col sm:${
-        selectedUser ? "hidden" : "flex"
+      className={`p-4 max-h-screen overflow-y-hidden flex flex-col ${
+        selectedConversation && "hidden sm:hidden"
       } md:flex`}
       style={{
         background:
@@ -14,10 +17,7 @@ const Sidebar = ({ selectedUser, setSelectedUser }) => {
       }}
     >
       <SearchUser />
-      <UsersContainer
-        selectedUser={selectedUser}
-        setSelectedUser={setSelectedUser}
-      />
+      <UsersContainer />
       <ProfileSection />
     </div>
   );

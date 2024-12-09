@@ -1,18 +1,21 @@
+import useConversation from "../../../zustandStore/useConversation";
 import MessageBox from "./MessageBox";
 import NoChatSelected from "./NoChatSelected";
 import SendMessage from "./SendMessage";
 import UserDetail from "./UserDetail";
 
-const MessageContainer = ({ selectedUser, setSelectedUser }) => {
+const MessageContainer = () => {
+  const { selectedConversation } = useConversation();
+
   return (
     <div
-      className={`p-4 max-h-screen overflow-y-hidden flex flex-col sm:${
-        selectedUser ? "flex" : "hidden"
+      className={`p-4 max-h-screen overflow-y-hidden flex flex-col ${
+        !selectedConversation && "hidden sm:hidden"
       } md:flex`}
     >
-      {selectedUser ? (
+      {selectedConversation ? (
         <>
-          <UserDetail setSelectedUser={setSelectedUser} />
+          <UserDetail />
           <MessageBox />
           <SendMessage />
         </>
