@@ -1,3 +1,4 @@
+import { useSocketContext } from "../../../context/SocketContext";
 import useGetAllUsers from "../../../hooks/useGetAllUsers";
 import useConversation from "../../../zustandStore/useConversation";
 
@@ -5,6 +6,7 @@ const UsersContainer = () => {
   const { loading, allUsers } = useGetAllUsers();
   const { selectedConversation, setSelectedConversation, userSearchFilter } =
     useConversation();
+  const { onlineUsers } = useSocketContext();
 
   if (loading) {
     return (
@@ -30,7 +32,7 @@ const UsersContainer = () => {
   }
 
   return (
-    <div className="flex flex-col flex-grow border-b-[1px] border-gray-700 py-6 gap-5 overflow-y-auto">
+    <div className="flex flex-col flex-grow p-6 gap-5 overflow-y-auto">
       {updatedAllUsers.map((user, index) => {
         return (
           <div
@@ -44,7 +46,9 @@ const UsersContainer = () => {
               setSelectedConversation(user);
             }}
           >
-            <div className="avatar online">
+            <div
+              className={`avatar ${onlineUsers.includes(user._id) && "online"}`}
+            >
               <div className="w-12 h-12 rounded-full">
                 <img src={user.profilePic} alt="profile pic" />
               </div>

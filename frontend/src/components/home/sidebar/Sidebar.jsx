@@ -8,7 +8,7 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`p-4 max-h-screen overflow-y-hidden flex flex-col ${
+      className={`max-h-screen overflow-y-hidden flex flex-col ${
         selectedConversation && "hidden sm:hidden"
       } md:flex`}
       style={{
@@ -16,9 +16,13 @@ const Sidebar = () => {
           "linear-gradient(to right, rgba(0, 0, 0, 0.5) 95%, transparent)",
       }}
     >
-      <SearchUser />
+      <div className="px-4 md:px-6">
+        <SearchUser />
+      </div>
       <UsersContainer />
-      <ProfileSection />
+      <div className="px-4 md:px-6">
+        <ProfileSection />
+      </div>
     </div>
   );
 };

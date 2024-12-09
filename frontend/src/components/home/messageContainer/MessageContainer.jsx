@@ -9,7 +9,7 @@ const MessageContainer = () => {
 
   return (
     <div
-      className={`p-4 max-h-screen overflow-y-hidden flex flex-col ${
+      className={`max-h-screen overflow-y-hidden flex flex-col ${
         !selectedConversation && "hidden sm:hidden"
       } md:flex`}
     >

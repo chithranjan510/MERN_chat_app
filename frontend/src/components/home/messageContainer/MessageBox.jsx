@@ -31,7 +31,7 @@ const MessageBox = () => {
   }
 
   return (
-    <div className="flex flex-col flex-grow py-4 gap-5 overflow-y-auto">
+    <div className="flex flex-col flex-grow p-6 gap-5 overflow-y-auto">
       {messages.map((message, index) => {
         return (
           <div
