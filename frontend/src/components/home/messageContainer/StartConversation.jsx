@@ -5,7 +5,7 @@ const StartConversation = () => {
   return (
     <div className="px-4 text-center text-gray-200 font-semibold flex h-full w-full items-center justify-center gap-6 sm:text-xl md:text-3xl lg:text-4xl">
       <div className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl">
-        <p className="mb-4">Start the conversation</p>
+        <p className="mb-4">Start a conversation</p>
         <p className="text-ellipsis">
           {`Send "Hi👋" to`}{" "}
           <span className="capitalize">

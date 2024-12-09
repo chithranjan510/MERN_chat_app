@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import { useAuthContext } from "../../../context/AuthContext";
 import useGetMessages from "../../../hooks/useGetMessages";
+import { formatDate } from "../../../utils/formatDate";
 import useConversation from "../../../zustandStore/useConversation";
 import StartConversation from "./StartConversation";
 
@@ -7,6 +9,14 @@ const MessageBox = () => {
   const { userAuthData } = useAuthContext();
   const { loading, messages } = useGetMessages();
   const { selectedConversation } = useConversation();
+
+  useEffect(() => {
+    if (loading || messages.length === 0) {
+      return;
+    }
+    const target = document.getElementById("messageBoxBottomDetector");
+    target.scrollIntoView({ behavior: "smooth" });
+  }, [loading, messages]);
 
   if (loading) {
     return (
@@ -44,14 +54,20 @@ const MessageBox = () => {
             </div>
             <div
               className={`chat-bubble max-w-[90%] ${
-                userAuthData._id === message.senderId ? "bg-slate-500":"bg-sky-700"
+                userAuthData._id === message.senderId
+                  ? "bg-slate-500"
+                  : "bg-sky-700"
               }`}
             >
               {message.message}
             </div>
+            <div className="chat-footer opacity-50 text-xs">
+              {formatDate(message.createdAt)}
+            </div>
           </div>
         );
       })}
+      <div id="messageBoxBottomDetector" />
     </div>
   );
 };

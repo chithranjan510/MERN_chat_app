@@ -29,7 +29,7 @@ export const sendMessage = async (req, res) => {
 
     await conversationData.save();
 
-    res.status(201).json(conversationData);
+    res.status(201).json(newMessage);
   } catch (error) {
     console.log("Send message error: ", error);
     res.status(500).json({ error: "Internal Server Error" });

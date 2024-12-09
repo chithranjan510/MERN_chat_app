@@ -19,9 +19,15 @@ const SignUpPage = () => {
     if (loading) {
       return;
     }
-    
+
+    const updatedInputs = {
+      ...inputs,
+      fullName: inputs.fullName.trim().replace(/\s+/g, " "),
+      username: inputs.username.trim().replace(/\s+/g, " "),
+    };
+
     e.preventDefault();
-    await signUp(inputs);
+    await signUp(updatedInputs);
   };
 
   return (
@@ -44,7 +50,12 @@ const SignUpPage = () => {
             required
             className="w-full input input-bordered h-10"
             value={inputs.fullName}
-            onChange={(e) => setInputs({ ...inputs, fullName: e.target.value })}
+            onChange={(e) =>
+              setInputs({
+                ...inputs,
+                fullName: e.target.value,
+              })
+            }
           />
           <label
             htmlFor="registerUsername"
@@ -77,7 +88,10 @@ const SignUpPage = () => {
               className="w-full input input-bordered h-10 pr-10"
               value={inputs.password}
               onChange={(e) =>
-                setInputs({ ...inputs, password: e.target.value })
+                setInputs({
+                  ...inputs,
+                  password: e.target.value.replace(" ", ""),
+                })
               }
             />
             <div
@@ -106,7 +120,10 @@ const SignUpPage = () => {
             className="w-full input input-bordered h-10"
             value={inputs.confirmPassword}
             onChange={(e) =>
-              setInputs({ ...inputs, confirmPassword: e.target.value })
+              setInputs({
+                ...inputs,
+                confirmPassword: e.target.value.replace(" ", ""),
+              })
             }
           />
           <div className="flex items-center mt-2">

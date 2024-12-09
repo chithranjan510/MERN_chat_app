@@ -3,7 +3,8 @@ import useConversation from "../../../zustandStore/useConversation";
 
 const UsersContainer = () => {
   const { loading, allUsers } = useGetAllUsers();
-  const { selectedConversation, setSelectedConversation } = useConversation();
+  const { selectedConversation, setSelectedConversation, userSearchFilter } =
+    useConversation();
 
   if (loading) {
     return (
@@ -13,9 +14,24 @@ const UsersContainer = () => {
     );
   }
 
+  const updatedAllUsers = allUsers.filter((user) =>
+    user.fullName.toLowerCase().includes(userSearchFilter.toLowerCase())
+  );
+
+  if (updatedAllUsers.length === 0) {
+    return (
+      <div className="flex flex-col flex-grow items-center justify-center border-b-[1px] border-gray-700">
+        <div className="flex flex-col gap-6 items-center justify-center">
+          <i className="fa-solid fa-person fa-2xl"></i>
+          <p className="font-bold text-2xl">No user found</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col flex-grow border-b-[1px] border-gray-700 py-6 gap-5 overflow-y-auto">
-      {allUsers.map((user, index) => {
+      {updatedAllUsers.map((user, index) => {
         return (
           <div
             key={index}
@@ -33,7 +49,9 @@ const UsersContainer = () => {
                 <img src={user.profilePic} alt="profile pic" />
               </div>
             </div>
-            <p className="font-bold text-lg capitalize text-ellipsis">{user.fullName}</p>
+            <p className="font-bold text-lg capitalize text-ellipsis">
+              {user.fullName}
+            </p>
           </div>
         );
       })}
