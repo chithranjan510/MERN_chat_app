@@ -20,6 +20,16 @@ function App() {
         path="/signup"
         element={userAuthData ? <Navigate to="/" replace /> : <SignUpPage />}
       />
+      <Route
+        path="*"
+        element={
+          userAuthData ? (
+            <Navigate to="/" replace />
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
     </Routes>
   );
 }
