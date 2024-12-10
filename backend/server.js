@@ -2,7 +2,7 @@ import express from "express";
 import path from "path";
 import dotenv from "dotenv";
 import authRouter from "./routes/auth.route.js";
-import connectToMongoDB from "./db/connectToMongoDb.js";
+import connectToMongoDB from "./db/connectToMongoDB.js";
 import cookieParser from "cookie-parser";
 import messageRouter from "./routes/message.route.js";
 import authMiddleware from "./middleware/auth.middleware.js";
@@ -14,8 +14,6 @@ dotenv.config();
 const port = process.env.PORT || 5000;
 
 const __dirname = path.resolve();
-
-console.log(__dirname)
 
 app.use(express.json());
 app.use(cookieParser());
@@ -30,11 +28,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
 });
 
-server.listen(port, async () => {
-  try {
-    connectToMongoDB();
-    console.log(`Server listening to port: ${port}`);
-  } catch (error) {
-    console.log(error.message);
-  }
+server.listen(port, () => {
+  connectToMongoDB();
+  console.log(`Server listening to port: ${port}`);
 });
