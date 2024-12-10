@@ -55,10 +55,12 @@ const SendMessage = () => {
           )}
         </button>
         {showEmojiPicker && (
-          <div className="absolute z-10 bottom-0 hello">
+          <div className="absolute z-10 bottom-14 hello">
             <EmojiPicker
               skinTonesDisabled
               searchDisabled
+              width={300}
+              height={350}
               onEmojiClick={(e) => {
                 inputRef.current.value = inputRef.current.value + e.emoji;
                 setShowEmojiPicker(false);
