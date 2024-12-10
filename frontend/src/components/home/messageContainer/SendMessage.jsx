@@ -42,7 +42,7 @@ const SendMessage = () => {
           type="text"
           placeholder="Send message..."
           ref={inputRef}
-          className="outline-none rounded-lg py-3 w-full text-black"
+          className="outline-none rounded-lg py-3 w-full text-black bg-white"
         />
         <button
           type="submit"

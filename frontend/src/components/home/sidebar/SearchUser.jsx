@@ -9,7 +9,7 @@ const SearchUser = () => {
         <input
           type="text"
           placeholder="Search..."
-          className="outline-none rounded-full py-2 pl-4 flex-grow text-black"
+          className="outline-none rounded-full py-2 pl-4 flex-grow text-black bg-white"
           value={userSearchFilter}
           onChange={(e) => setUserSearchFilter(e.target.value)}
         />

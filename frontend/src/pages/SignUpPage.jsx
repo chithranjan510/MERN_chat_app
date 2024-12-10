@@ -31,7 +31,7 @@ const SignUpPage = () => {
   };
 
   return (
-    <div className="min-h-screen overflow-y-auto flex flex-col gap-4 items-center justify-center">
+    <div className="min-h-dvh overflow-y-auto flex flex-col gap-4 items-center justify-center">
       <h1 className="text-gray-300 text-3xl font-semibold">
         Sign Up <span className="text-orange-500">DoConnect</span>
       </h1>
