@@ -3,7 +3,7 @@ import Sidebar from "../components/home/sidebar/Sidebar";
 
 const HomePage = () => {
   return (
-    <div className="min-h-dvh overflow-hidden grid sm:grid-cols-[1fr] md:grid-cols-[300px_1fr] lg:grid-cols-[400px_1fr] text-white">
+    <div className="min-h-svh overflow-hidden grid sm:grid-cols-[1fr] md:grid-cols-[300px_1fr] lg:grid-cols-[400px_1fr] text-white">
       <Sidebar />
       <MessageContainer />
     </div>
