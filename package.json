@@ -4,8 +4,8 @@
   "description": "This is a chat app built using mern stack.",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+    "start": "npm start",
+    "build": "npm install backend && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
   "author": "",
