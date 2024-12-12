@@ -58,7 +58,7 @@ const SendMessage = () => {
           <div className="absolute z-10 bottom-14 hello">
             <EmojiPicker
               skinTonesDisabled
-              searchDisabled
+              previewConfig={{ showPreview: false }}
               width={300}
               height={350}
               onEmojiClick={(e) => {
